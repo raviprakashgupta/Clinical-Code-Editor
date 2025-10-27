@@ -1,0 +1,5 @@
+{
+  "name": "Clinical Code Vibe",
+  "description": "An AI-powered vibe coding UI to generate, review, and simulate the execution of R code for clinical datasets (SDTM, ADAM) from uploaded specifications.",
+  "requestFramePermissions": []
+}
