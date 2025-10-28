@@ -22,7 +22,8 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
+        # use npm install because npm ci requires a package-lock.json; this repo does not have one
+        run: npm install --no-audit --no-fund
 
       - name: Build
         env:
