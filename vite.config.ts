@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      // When deployed to GitHub Pages as a project site the app is served under
+      // the repository name path (e.g. /Clinical-Code-Editor/). Set `base`
+      // so built assets reference the correct absolute path. Keep `/` for dev.
+      base: mode === 'production' ? '/Clinical-Code-Editor/' : '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
