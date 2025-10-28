@@ -32,9 +32,31 @@ What to expect:
 
 Steps you must complete:
 1. Add the `GEMINI_API_KEY` repository secret (Settings → Secrets and variables → Actions → New repository secret) so the build can succeed.
+2. After you deploy the backend (see Server deployment below), add a repository secret named `VITE_BACKEND_URL` with the public URL of your backend (for example `https://your-service.onrender.com`). The Pages build uses this value to point the frontend to the backend API.
 2. Push to `main` (the workflow runs on push). The Actions tab will show progress.
 3. When the workflow succeeds Pages will show the published site URL in Settings → Pages.
 
 Notes:
 - The API key is available at build time and will be embedded in the built assets. If you need to keep it private at runtime, consider proxying requests through a server.
 - If you prefer a custom domain or a different provider, see the Hosting options section in the repository.
+
+## Server deployment (recommended: Render)
+
+This repo includes a small FastAPI server in `/server` that runs a local ggml model via `llama-cpp-python` and exposes `/api/generate` and `/api/health`.
+
+Quick Render steps (summary):
+1. Push your repo to GitHub (already done).
+2. Create a Render account and connect the repository.
+3. Create a new Web Service and point it to the `server` directory (or use the `server/Dockerfile` added to this repo).
+   - If using the Dockerfile: Render will build the image and run the container.
+   - Ensure the service exposes port 5000 and the start command runs `uvicorn server.main:app --host 0.0.0.0 --port 5000`.
+4. Provide the model to the service:
+   - Preferred: mount a persistent disk or provide a startup script that downloads the model into the container at `/app/server/models/model.bin`.
+   - Alternatively, add the model to your container image (not recommended for very large models).
+5. After deployment, note the public service URL (e.g., `https://your-service.onrender.com`).
+6. Add `VITE_BACKEND_URL` as a repository secret with that URL (no trailing slash). Push to `main` to trigger the Pages build.
+
+Notes on model hosting and cost:
+- Running ggml models requires disk space and CPU; larger models may be slow on CPU-only hosts. Consider smaller quantized models for CPU-only environments.
+- If you prefer to avoid hosting models yourself, replace `/server` logic with a proxy to a hosted inference API (Hugging Face / Replicate) and set that provider's API key as a secret instead.
+
