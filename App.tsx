@@ -4,7 +4,8 @@ import { FileExplorer } from './components/FileExplorer';
 import { EditorPanel } from './components/EditorPanel';
 import { LogPanel } from './components/LogPanel';
 import type { LogEntry, ViewType, FileItem, DerivationTask, ExecutionError, ConvertedCode, SupportedLanguage } from './types';
-import { generateRCode, debugRCode, convertCode, simulateRCodeExecution } from './services/geminiService';
+import { generateRCode, debugRCode, convertCode, simulateRCodeExecution, isDemoMode } from './services/geminiService';
+import { useEffect } from 'react';
 
 declare var XLSX: any;
 
@@ -463,6 +464,37 @@ CODE STYLE:
         onUploadClick={handleUploadClick}
         onDownloadTemplate={handleDownloadTemplate}
       />
+      <div className="mx-4 mt-2 flex items-center gap-4">
+        {isDemoMode ? (
+          <div className="p-3 rounded-md bg-yellow-50 border border-yellow-300 text-yellow-800">
+            Demo mode: no backend or Gemini key configured. LLM responses are mocked so UI features are visible.
+          </div>
+        ) : (
+          <div className="p-3 rounded-md bg-green-50 border border-green-300 text-green-800">
+            Live mode available: the app can call a backend or Gemini client.
+          </div>
+        )}
+
+        <div className="ml-auto mr-4">
+          <label className="inline-flex items-center">
+            <input
+              type="checkbox"
+              className="mr-2"
+              defaultChecked={localStorage.getItem('forceDemo') !== 'false'}
+              onChange={(e) => {
+                try {
+                  window.localStorage.setItem('forceDemo', e.target.checked ? 'true' : 'false');
+                  // small hint: reloading ensures all modules pick up the change
+                  window.location.reload();
+                } catch (err) {
+                  // ignore
+                }
+              }}
+            />
+            Use Demo Mode (forces mocked AI responses)
+          </label>
+        </div>
+      </div>
       <input
         type="file"
         ref={fileInputRef}
