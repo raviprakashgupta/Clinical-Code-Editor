@@ -1,8 +1,8 @@
-name: Build and publish to GitHub Pages
+name: Build and publish to GitHub Pages (disabled)
 
+# Disabled for now to avoid duplicate Pages workflows. Use deploy-gh-pages.yml instead.
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch: {}
 
 permissions:
   contents: write
