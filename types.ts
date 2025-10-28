@@ -4,12 +4,14 @@ export interface LogEntry {
   type: 'info' | 'success' | 'error' | 'system';
 }
 
-export type ViewType = 'spec' | 'prompt' | 'code';
+export type ViewType = 'spec' | 'prompt' | 'code' | 'driver' | 'output' | 'converted';
+export type SupportedLanguage = 'R' | 'Python' | 'SAS';
 
 export interface FileItem {
   name: string;
   type: ViewType;
   available: boolean;
+  language?: SupportedLanguage;
 }
 
 export interface DerivationTask {
@@ -19,4 +21,14 @@ export interface DerivationTask {
   derivation: string;
   prompt: string;
   isApproved: boolean;
+}
+
+export interface ExecutionError {
+  message: string;
+  line?: number;
+}
+
+export interface ConvertedCode {
+  language: SupportedLanguage;
+  code: string;
 }

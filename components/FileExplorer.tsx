@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FileItem, ViewType } from '../types';
-import { FileIcon, CodeIcon, DocumentTextIcon } from './Icons';
+import { FileIcon, CodeIcon, DocumentTextIcon, TableIcon, PythonIcon, SASIcon } from './Icons';
 
 interface FileExplorerProps {
   files: FileItem[];
@@ -8,14 +8,22 @@ interface FileExplorerProps {
   onSelectView: (view: ViewType) => void;
 }
 
-const getIcon = (type: ViewType) => {
-    switch (type) {
+const getIcon = (file: FileItem) => {
+    if (file.type === 'code' || file.type === 'driver' || file.type === 'converted') {
+        switch(file.language) {
+            case 'Python': return <PythonIcon className="w-5 h-5 text-green-400" />;
+            case 'SAS': return <SASIcon className="w-5 h-5 text-blue-400" />;
+            case 'R': return <CodeIcon className="w-5 h-5 text-purple-400" />;
+            default: return <CodeIcon className="w-5 h-5 text-cyan-400" />;
+        }
+    }
+    switch (file.type) {
         case 'spec':
-            return <FileIcon className="w-5 h-5 text-green-400" />;
+            return <FileIcon className="w-5 h-5 text-emerald-400" />;
         case 'prompt':
             return <DocumentTextIcon className="w-5 h-5 text-yellow-400" />;
-        case 'code':
-            return <CodeIcon className="w-5 h-5 text-cyan-400" />;
+        case 'output':
+            return <TableIcon className="w-5 h-5 text-orange-400" />;
         default:
             return <FileIcon className="w-5 h-5 text-slate-400" />;
     }
@@ -37,7 +45,7 @@ export const FileExplorer: React.FC<FileExplorerProps> = ({ files, activeView, o
                 file.available ? 'hover:bg-slate-700/50 cursor-pointer' : 'opacity-50 cursor-not-allowed'
               }`}
             >
-              {getIcon(file.type)}
+              {getIcon(file)}
               <span>{file.name}</span>
             </button>
           </li>

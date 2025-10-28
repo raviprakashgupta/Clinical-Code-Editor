@@ -47,3 +47,47 @@ export const CircleIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
 );
+
+export const LightBulbIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a15.045 15.045 0 01-7.5 0C4.508 19.64 3 17.418 3 14.818s1.508-4.823 4.5-5.382m7.5 0s.908-.14 2.25-.14m-2.25.14a6.06 6.06 0 012.25 0m-10.5 0a6.06 6.06 0 012.25 0m0 0a6.064 6.064 0 01-2.25 0m10.5 0a6.064 6.064 0 01-2.25 0m0 0s-.908.14-2.25.14m2.25-.14a6.06 6.06 0 00-2.25 0m0 0a6.01 6.01 0 00-1.5.189m1.5-.189a6.01 6.01 0 011.5.189m-3.75 7.478a12.06 12.06 0 004.5 0" />
+    </svg>
+);
+
+export const DownloadIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+    </svg>
+);
+
+export const TableIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125V6.375m1.125 13.125A1.125 1.125 0 005.25 21h13.5M3.375 19.5V6.375m0-1.125A1.125 1.125 0 014.5 4.125h15A1.125 1.125 0 0120.625 5.25v14.25m-17.25 0h17.25M12 21V4.125" />
+    </svg>
+);
+
+export const TranslateIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+    </svg>
+);
+
+export const PythonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+        <path d="M15.08 12.21c-.34.34-.79.53-1.26.53H12.2v2.29h1.61c.47 0 .92.19 1.26.53.34.34.53.79.53 1.26v1.59c0 .99-1.07 1.5-1.74 1.03l-1.18-1.18-1.59-1.59c-.34-.34-.79-.53-1.26-.53H10v1.61c0 .47-.19.92-.53 1.26-.34.34-.79.53-1.26.53H6.62c-.99 0-1.5-1.07-1.03-1.74l1.18-1.18 1.59-1.59c.34-.34.79-.53 1.26-.53h1.61V12.2H8.93c-.47 0-.92-.19-1.26-.53-.34-.34-.53-.79-.53-1.26V8.82c0-.99 1.07-1.5 1.74-1.03l1.18 1.18 1.59 1.59c.34.34.79.53 1.26.53h2.29v-1.6c0-.47.19-.92.53-1.26.34-.34.79-.53 1.26-.53h1.59c.99 0 1.5 1.07 1.03 1.74l-1.18 1.18-1.59 1.59z" />
+    </svg>
+);
+
+export const SASIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+        <path d="M4.5 4.5v15h15V4.5h-15zm5.06 2.53h4.88c.31 0 .56.25.56.56v1.31c0 .31-.25.56-.56.56h-4.88c-.31 0-.56-.25-.56-.56V7.65c0-.31.25-.56.56-.56zm4.88 4.38h-1.62c-.31 0-.56.25-.56.56v4.88c0 .31.25.56.56.56h1.62c.31 0 .56-.25.56-.56v-4.88c0-.31-.25-.56-.56-.56zm-7.44-1.84c.31 0 .56.25.56.56v7.44c0 .31-.25.56-.56.56H5.06c-.31 0-.56-.25-.56-.56v-7.44c0-.31.25-.56.56-.56h1.94z" />
+    </svg>
+);
+
+export const SaveIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" transform="rotate(180 12 12)" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+    </svg>
+);
