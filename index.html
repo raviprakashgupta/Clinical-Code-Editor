@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clinical Code Vibe</title>
+    <title>Programming Assistant Tool</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
     <style>
       /* For custom scrollbars */
       ::-webkit-scrollbar {
@@ -13,13 +14,22 @@
         height: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #1e293b;
+        background: #f1f5f9; /* Light theme track */
       }
       ::-webkit-scrollbar-thumb {
-        background: #475569;
+        background: #94a3b8; /* Light theme thumb */
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e293b; /* Dark theme track */
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #475569;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
         background: #64748b;
       }
     </style>
@@ -34,9 +44,9 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/Clinical-Code-Editor/assets/index-B18B7g8P.js"></script>
+  <script type="module" crossorigin src="/Clinical-Code-Editor/assets/index-CgrFVP2z.js"></script>
 </head>
-  <body class="bg-slate-900 text-slate-300">
+  <body class="bg-slate-900 text-slate-300 dark">
     <div id="root"></div>
   </body>
 </html>
